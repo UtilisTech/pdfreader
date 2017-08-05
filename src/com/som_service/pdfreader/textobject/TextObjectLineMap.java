@@ -31,7 +31,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -111,19 +110,6 @@ public class TextObjectLineMap {
 		
 		List<List<TextObjectWord>> lines = new ArrayList<>();
 		
-		if (Environment.DEBUG){
-			System.out.println(StringUtils.join(new String[]{
-				"Char",
-				"New Word",
-				"Current End",
-				"X",
-				"X-C",
-				"Width",
-				"Space",
-				"ScaleX"
-			}, "\t"));
-		}
-		
 		for(Double index: map.keySet()){
 			List<TextObjectWord> words = new ArrayList<>();
 			List<TextObject> word_members = new ArrayList<>();
@@ -134,19 +120,6 @@ public class TextObjectLineMap {
 				double pos_diff = tx.x - last_end;
 				boolean condition1 = pos_diff > tx.space_width * tx.tp.getXScale() / 10.1;
 				boolean condition2 = last_pos_diff <= 0 && pos_diff > 0;
-				
-				if (Environment.DEBUG){
-					System.out.println(StringUtils.join(new Object[]{
-						tx.text,
-						condition1||condition2,
-						last_end,
-						tx.x,
-						tx.x - last_end,
-						tx.width,
-						tx.space_width,
-						tx.tp.getXScale()
-					}, "\t"));
-				}
 				
 				if (condition1 || condition2){
 					if (!word_members.isEmpty()){
