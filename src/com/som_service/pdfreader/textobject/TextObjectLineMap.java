@@ -23,8 +23,6 @@
  */
 package com.som_service.pdfreader.textobject;
 
-import com.som_service.extra.utils.DebugUtils;
-import com.som_service.hsbc.Environment;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
