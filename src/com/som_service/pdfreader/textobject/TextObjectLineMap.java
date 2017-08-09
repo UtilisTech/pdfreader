@@ -35,8 +35,11 @@ import java.util.TreeMap;
  * @author Eugene Dementiev
  */
 public class TextObjectLineMap {
+	
 	public final Map<Double, List<TextObject>> map;
 	public final List<TextObject> list;
+	
+	private double spaceScaleMultiplier = 10.1;
 	
 	public TextObjectLineMap(){
 		list = new ArrayList<>();
@@ -116,7 +119,7 @@ public class TextObjectLineMap {
 			double last_pos_diff = 0;
 			for(TextObject tx: map.get(index)){
 				double pos_diff = tx.x - last_end;
-				boolean condition1 = pos_diff > tx.space_width * tx.tp.getXScale() / 10.1;
+				boolean condition1 = pos_diff > tx.space_width * tx.tp.getXScale() / spaceScaleMultiplier;
 				boolean condition2 = last_pos_diff <= 0 && pos_diff > 0;
 				
 				if (condition1 || condition2){
@@ -166,4 +169,24 @@ public class TextObjectLineMap {
 		
 		return txolm;
 	}
+
+	/**
+	 * Gets the value of space scale multiplier
+	 * @return spaceScaleMultiplier
+	 */
+	public double getSpaceScaleMultiplier() {
+		return spaceScaleMultiplier;
+	}
+
+	/**
+	 * Sets space scale multiplier, which impacts how symbols are grouped into words<br/>
+	 * Larger number decreases space between symbols required to qualify as a word separator<br/>
+	 * Smaller number increases space between symbols required to qualify as a word separator
+	 * @param spaceScaleMultiplier 
+	 */
+	public void setSpaceScaleMultiplier(double spaceScaleMultiplier) {
+		this.spaceScaleMultiplier = spaceScaleMultiplier;
+	}
+	
+	
 }
