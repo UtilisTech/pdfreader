@@ -23,6 +23,7 @@
  */
 package com.som_service.pdfreader.textobject;
 
+import com.som_service.extra.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -118,9 +119,18 @@ public class TextObjectLineMap {
 			double last_end = 0;
 			double last_pos_diff = 0;
 			for(TextObject tx: map.get(index)){
+				if(StringUtils.isWhiteSpace(tx.text.charAt(0))){
+					// Do not count white spaces
+					continue;
+				}
 				double pos_diff = tx.x - last_end;
+				
+				// Distance between last token's bbox in word members to this token's bbox greater than a space (scaled and multiplied)
 				boolean condition1 = pos_diff > tx.space_width * tx.tp.getXScale() / spaceScaleMultiplier;
+				
+				// wtf?
 				boolean condition2 = last_pos_diff <= 0 && pos_diff > 0;
+				condition2 = false;
 				
 				if (condition1 || condition2){
 					if (!word_members.isEmpty()){
@@ -142,7 +152,7 @@ public class TextObjectLineMap {
 					word_prefix_distance = tx.x - last_end;
 				}
 				
-				last_end = tx.x + tx.width;
+				last_end = tx.bbox.right;
 				last_pos_diff = pos_diff;
 				
 			}
