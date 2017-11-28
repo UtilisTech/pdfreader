@@ -156,11 +156,17 @@ public class TextObjectLineMap {
 				last_pos_diff = pos_diff;
 				
 			}
+			
+			if (word_members.isEmpty()){
+				continue;
+			}
+			
 			TextObjectWord word = new TextObjectWord(word_members);
 			word.setSpaceBefore(word_prefix_distance);
 			words.add(word);
 			
 			lines.add(words);
+			
 		}
 		
 		return lines;
