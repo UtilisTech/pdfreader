@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.som_service</groupId>
-	<artifactId>extra</artifactId>
+	<artifactId>pdfreader</artifactId>
 	<version>0.1</version>
 	
 	<repositories>
