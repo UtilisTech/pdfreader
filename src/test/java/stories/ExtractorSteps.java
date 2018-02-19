@@ -94,7 +94,7 @@ public class ExtractorSteps {
 	
 	@Then("I get $words words")
 	public void countWordsOnLine(int words){
-		System.out.println(line);
+		//System.out.println(line);
 		Assert.assertEquals(words, line.size());
 	}
 	
