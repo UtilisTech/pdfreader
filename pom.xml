@@ -39,6 +39,12 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.jbehave</groupId>
+			<artifactId>jbehave-core</artifactId>
+			<version>4.2-beta-1</version>
+		</dependency>
+		
 	</dependencies>
   
 	<properties>
@@ -48,6 +54,28 @@
 	</properties>
 	
 	<build>
+		
+		<testResources>
+			<testResource>
+				<directory>src/test/java/stories</directory>
+				<targetPath>stories</targetPath>
+				<includes>
+					<include>**/*.story</include>
+				</includes>
+			</testResource>
+			
+			<testResource>
+				<directory>src/test/java/resources</directory>
+				<targetPath>resources</targetPath>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		
 		<plugins>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
