@@ -23,10 +23,7 @@
  */
 package com.som_service.pdfreader.textobject;
 
-import com.som_service.extra.utils.data.VirtualMap;
-import com.som_service.extra.utils.data.table.Cell;
-import com.som_service.extra.utils.data.table.CellStringifier;
-import com.som_service.extra.utils.data.table.Table;
+import tech.utilis.common.table.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

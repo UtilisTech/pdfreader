@@ -15,9 +15,19 @@
 	<dependencies>
 		
 		<dependency>
-			<groupId>com.github.site-o-matic</groupId>
-			<artifactId>extra</artifactId>
-			<version>v0.1</version>
+			<!--<groupId>tech.utilis</groupId>-->
+			<!--<artifactId>tech.utilis.common.lang</artifactId>-->
+			<groupId>com.github.UtilisTech</groupId>
+			<artifactId>common-lang</artifactId>
+			<version>0.1</version>
+		</dependency>
+		
+		<dependency>
+			<!--<groupId>tech.utilis</groupId>-->
+			<!--<artifactId>tech.utilis.common.table</artifactId>-->
+			<groupId>com.github.UtilisTech</groupId>
+			<artifactId>common-table</artifactId>
+			<version>master-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>

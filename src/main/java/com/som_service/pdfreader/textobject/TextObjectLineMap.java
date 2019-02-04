@@ -23,7 +23,7 @@
  */
 package com.som_service.pdfreader.textobject;
 
-import com.som_service.extra.utils.StringUtils;
+import tech.utilis.common.lang.StringUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -119,7 +119,7 @@ public class TextObjectLineMap {
 			double last_end = 0;
 			double last_pos_diff = 0;
 			for(TextObject tx: map.get(index)){
-				if(StringUtils.isWhiteSpace(tx.text.charAt(0))){
+				if(StringUtils.isVisibleWhiteSpace(tx.text.charAt(0))){
 					// Do not count white spaces
 					continue;
 				}
